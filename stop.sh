@@ -1,2 +1,2 @@
 #!/bin/bash
-pkill motionTest
+pkill motionDetection
