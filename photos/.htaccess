@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Raspberry Spi"
+AuthUserFile /home/pi/Smellen/.htpasswd
+Require valid-user
