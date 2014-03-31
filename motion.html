@@ -2,34 +2,76 @@
 <html>
 
 <head>
-    <title>Raspberry Spi</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+<title>Raspberry Spi</title>
+<link href="css/main.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-
 <div id="wrap">
 <div class="logo">
 <img src="img/raspberrySPY.png" alt="Raspberry Spi" />
 </div>
 
 
-    <div id="wrap">
-        <h2>Starting and Stopping Motion Dection</h2>
+<form action="index.html">
+<input type ="submit" value="   &larr;   " style = "position: absolute; left: 500px; top: 100px;"></form>
 
 
-        <p>Start Motion Detection</p>
-        <form action="http://37.228.209.172/startMotion.php" method="get">
-            <input type="submit" value="Run me now!">
-        </form>
+<h2>Starting and Stopping Motion Dection</h2>
 
-        <p>Stop Motion Detection</p>
-        <form action="http://37.228.209.172/stopMotion.php" method="get">
-            <input type="submit" value="Stop me now!">
-        </form>
-    </div>
+<div id="status"></div>
+
+<p>Start Motion Detection</p>
+<button type="button" class="btn" id="start">Start</button>
+
+<p>Stop Motion Detection</p>
+<button type="button" class="btn" id="stop">Stop</button>
+
+</div>
+
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+var $, console;
+
+$(".btn").click(function() {
+
+		var motion = this.id;
+		console.log(motion);
+
+		if (motion == 'start') {
+
+		$.ajax({
+url: 'startMotion.php',
+type: "post",
+data: {
+'motion': motion
+},
+success: function() {
+// $("#status").html("Motion detection: ON");
+}
+
+});
+		$("#status").html("Motion detection: ON");
+
+		} else {
+			$.ajax({
+url: 'stopMotion.php',
+type: "post",
+data: {
+'motion': motion
+},
+success: function() {
+// $("#status").html("Motion detection: OFF");
+}
+});
+$("#status").html("Motion detection: OFF");
+
+}
+});
+</script>
 </body>
-
 </html>
-
