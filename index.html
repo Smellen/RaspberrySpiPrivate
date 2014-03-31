@@ -4,8 +4,8 @@
 <head>
 <title>Raspberry Spi</title>
 <link href="css/main.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://37.228.209.172/raspberrySpi.ico">
-<link rel="apple-touch-icon" href="http://37.228.209.172/raspberrySpi.ico">
+<link rel="shortcut icon" href="raspberrySpi.ico">
+<link rel="apple-touch-icon" href="raspberrySpi.ico">
 </head>
 
 <body>
@@ -17,25 +17,30 @@
 <h2>Welcome to Raspberry Spi</h2>
 
 <p>View photos currently stored on the Raspberry:</p>
-<form action="http://37.228.209.172/photos">
+<form action="viewPictures.php">
 <input type="submit" value="View Photos">
 </form>
 
 <p>Take a real time photo:</p>
-<form action="http://37.228.209.172/cgi-bin/testing.cgi" method="get">
+<form action="cgi-bin/liveFrame.cgi" method="get">
 <input type="submit" value="Take photo">
 </form>
 
 <p>Motion Detection!</p>
-<form action="http://37.228.209.172/motion.html" method="get">
+<form action="motion.html" method="get">
 <input type="submit" value="Start and Stop Motion">
 </form>
 
 <p>Stream live now!</p>
-<form action="http://37.228.209.172/cgi-bin/ellen.cgi">
+<form action="cgi-bin/ellen.cgi">
 <input type="submit" value="Stream Raspberry Spi">
 </form>
 
+<div id="footer">
+	<p> <a href="/help.html">Help Page</a> </p>
+<div>
+
+</div>
 
 </div>
 </body>

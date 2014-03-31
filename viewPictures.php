@@ -36,3 +36,8 @@ for ($index = 0; $index < $count; $index++) {
 }
 echo '</table>';
 ?>
+
+<div id="footer">
+        <p> <a href="/help.html">Help Page</a> </p>
+<div>
+

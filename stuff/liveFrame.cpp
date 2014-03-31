@@ -104,6 +104,11 @@ int main (){
 
 	cout << "<h1> Frame Saved! </h1>\n";
 	cout << "<img src=\"http://37.228.209.172/photos/time.png\" alt=\"Raspberry SPY\" />";
+	
+	cout <<	"<div id=\"footer\">";
+        cout << "<p> <a href=\"/help.html\">Help Page</a> </p>";
+	cout << "<div>";
+
 	cout << "</div>";
 	cout << "</body>";
 	cout << "</html>";
