@@ -1,0 +1,81 @@
+<html>
+
+
+<head>
+<title>Raspberry Spi</title>
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="raspberrySpi.ico">
+<link rel="apple-touch-icon" href="raspberrySpi.ico">
+
+</head>
+
+
+<div id="wrap">
+<div class="logo">
+<img src="img/raspberrySPY.png" alt="Raspberry Spi" />
+</div>
+<form action="index.html">
+<input type ="submit" value="   &larr;   " style = "position: absolute; left: 500px; top: 100px;"></form>
+
+
+<div id="wrap">
+
+<h1> Help Page</h1>
+
+<h2>The camera doesn't open?</h2>
+<p> The UV4L driver has not been started. This must be started on the pi or added to the pi's boot script.</p>
+
+<h2>How does the motion detection work?</h2>
+<p> All image processing is d ne by using the OpenCV library. Fo motion detection a method called absolute difference is used. </p>
+<p> Absolute difference takes in two images. It subtracts one from the other and returns a new one with the differences in it. Instead of looking for motion in a colour the new image containing the differences is converted to greyscale. This image will now only have black and white pixels. Black pixels mean no difference in that area and white pixels mean there are.</p>
+
+<h2>The webpage is unavailable?</h2>
+<p>If the webpage cannot be found check the external IP and the internal IP address's have not changed.</p> 
+
+<p>For checking the external IP use curl on your pi. The command is : </p>
+
+<p><b>curl ifconfig.me </b></p>
+
+<p> If curl is not installed run the follow command:</p>
+
+<p><b>sudo apt-get install curl</b></p>
+<p>Curl will only return the pi's external IP.</p>
+
+<p>For checking the internal IP address use the following command:</p>
+<p><b>ifconfig</b></p>
+<p>Look for the section <b>wlan0</b> and the IP should after the<b> inet addr</b>.</p>
+
+<p>If the external and internal IP's are the same as in the webpages check to see if port forwarding is set up on your router. Port 80 is needed to send the HTTP requests to the pi from your browser. To do this log into your router and allow port 80 access to the pi's internal IP address. Port forwarding will be different for each router and should be explained in the router manual or found online.
+</p>
+
+<p>If the webpage is still not available after trying these steps restart apache from the pi by using the following command:</p>
+<p><b>sudo service apache2 restart</b></p>
+
+<h2>When taking a live frame the webpage displays "Frame not read correctly?"</h2>
+<p>Try taking the frame again. Check to see if motion detection is currently running and if it is stop it. Change the count number in the liveFrame.cpp to a higher count. This will make the camera read in more frames and has a better chance of the frame not being empty. If these steps don't work make sure the camera module is properly connected to the pi and reboot.</p>
+
+<h2>How to SSH into the Raspberry Pi?</h2>
+<p>To SSH into the pi make sure that port forwarding is set up for port 22. If you are trying to access the pi from inside your home network SSH into the internal IP address. If you are trying to access the pi from an external network SSH into the external IP address.</p>
+<p>Internal: <b>ssh pi@192.168.192.XX</b></p>
+<p>External: <b>ssh pi@37.228.209.XXX</b></p>
+
+<h2>While motion detection was running not a complete picture was saved. Only partial image appear?</h2>
+<p>Only partial images appear when the OpenCV command imwrite is interupted. If the motion process was interupted while saving only a partial piece of the image will be saved.</p>
+
+<h2>Source code for the Raspberry Spi?</h2>
+<p>www.github.com/Smellen </p>
+
+<h2>Question not here?  </h2>
+<p>Email eburke624@gmail.com </p>
+
+
+<h2>  </h2>
+<p>  </p>
+
+
+
+</div>
+
+
+
+<html>
