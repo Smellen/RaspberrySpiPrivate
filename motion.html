@@ -2,77 +2,95 @@
 <html>
 
 <head>
-<title>Raspberry Spi</title>
-<link href="css/main.css" rel="stylesheet" type="text/css">
+    <title>Raspberry Spi</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-<div id="wrap">
-<div class="logo">
-<img src="img/raspberrySPY.png" alt="Raspberry Spi" />
-</div>
+    <div id="wrap">
+        <div class="logo">
+            <img src="img/raspberrySPY.png" alt="Raspberry Spi" />
+        </div>
 
 
-<form action="index.html">
-<input type ="submit" value="   &larr;   " style = "position: absolute; left: 500px; top: 100px;"></form>
+        <form action="index.html">
+            <input type="submit" value="   &larr;   " style="position: absolute; left: 500px; top: 100px;">
+        </form>
 
 
-<h2>Starting and Stopping Motion Dection</h2>
+        <h2>Starting and Stopping Motion Dection</h2>
 
-<div id="status"></div>
+        <div id="status"></div>
 
-<p>Start Motion Detection</p>
-<button type="button" class="btn" id="start">Start</button>
+        <p>Start Motion Detection</p>
+        <div class="meh">
+            <button type="button" class="btn" id="start">Start</button>
+            <div id="green" class="motion"></div>
 
-<p>Stop Motion Detection</p>
-<button type="button" class="btn" id="stop">Stop</button>
+        </div>
 
-<div id="footer">
-        <p> <a href="/help.html">Help Page</a> </p>
-<div>
-</div>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-var $, console;
+        <p>Stop Motion Detection</p>
+        <div class="meh">
+            <button type="button" class="btn" id="stop">Stop</button>
+            <div id="red" class="motion"></div>
+        </div>
 
-$(".btn").click(function() {
 
-		var motion = this.id;
-		console.log(motion);
+        <div id="footer">
+            <p>
+                <a href="/help.html">Help Page</a>
+            </p>
+        </div>
+    </div>
 
-		if (motion == 'start') {
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        var $, console;
 
-		$.ajax({
-url: 'startMotion.php',
-type: "post",
-data: {
-'motion': motion
-},
-success: function() {
-// $("#status").html("Motion detection: ON");
-}
+        $(".btn").click(function() {
 
-});
-		$("#status").html("Motion detection: ON");
+            $("#green").html(" ");
+            $("#red").html(" ");
 
-		} else {
-			$.ajax({
-url: 'stopMotion.php',
-type: "post",
-data: {
-'motion': motion
-},
-success: function() {
-// $("#status").html("Motion detection: OFF");
-}
-});
-$("#status").html("Motion detection: OFF");
+            var motion = this.id;
+            console.log(motion);
 
-}
-});
-</script>
+            if (motion == 'start') {
+
+                $.ajax({
+                    url: 'startMotion.php',
+                    type: "post",
+                    data: {
+                        'motion': motion
+                    },
+                    success: function() {
+
+                    }
+
+                });
+                $("#status").html("Motion detection: ON");
+                $("#green").html("<img src='img/raspberrySPYstart.png' alt='Go' />");
+
+            } else {
+                $.ajax({
+                    url: 'stopMotion.php',
+                    type: "post",
+                    data: {
+                        'motion': motion
+                    },
+                    success: function() {
+
+                    }
+                });
+                $("#status").html("Motion detection: OFF");
+                $("#red").html("<img src='img/raspberrySPYstop.png' alt='Stop' />");
+
+            }
+        });
+    </script>
 
 </body>
+
 </html>
