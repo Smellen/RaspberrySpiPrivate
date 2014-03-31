@@ -14,12 +14,12 @@ Current
 - RSpi layout
 - Ip email on boot
 - Connected to CSopen
+- Back button
+- Motion detection eye colour
 
 Features not yet added
 =======================
-- Back button
 - Live video streaming
 - Acknowledgements page
 - Script for updating ip address
-- Motion detection eye colour
-
+- Presentation Slides
