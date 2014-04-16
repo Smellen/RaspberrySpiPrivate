@@ -1,0 +1,120 @@
+***************
+
+These are the dame questions and answers as the help page accessed through the website.
+
+***************
+
+
+
+The camera doesn't open?
+
+The UV4L (Universal Video 4 Linux) driver has not been started. This must be started on the pi or added to the pi's boot script.
+
+To start the camera use the following command:
+
+sudo uv4l --sched-rr --driver raspicam --auto-video_nr --width 320 --height 240 --encoding mjpeg --nopreview --awb off --framerate 15
+
+
+
+
+
+How does the motion detection work?
+
+All image processing is done by using the OpenCV library. For motion detection a method called absolute difference is used.
+
+Absolute difference takes in two images. It subtracts one from the other and returns a new one with the differences in it. Instead of looking for motion in a colour the new image containing the differences is converted to greyscale. This image will now only have black and white pixels. Black pixels mean no difference in that area and white pixels means there is a difference.
+
+
+
+
+
+The webpage is unavailable?
+
+If the webpage cannot be found check the external IP and the internal IP address's have not changed.
+
+For checking the external IP use curl on your pi. The command is :
+
+curl ifconfig.me
+
+If curl is not installed run the following command:
+
+sudo apt-get install curl
+
+Curl will only return the pi's external IP.
+
+For checking the internal IP address use the following command:
+
+ifconfig
+
+Look for the section wlan0 and the IP should be after the inet addr.
+
+If the external and internal IP's are the same as in the webpages check to see if port forwarding is set up on your router. Port 80 is needed to send the HTTP requests to the pi from your browser. To do this log into your router and allow port 80 access to the pi's internal IP address. Port forwarding will be different for each router and should be explained in the router manual or found online.
+
+If the webpage is still not available after trying these steps restart apache from the pi by using the following command:
+
+sudo service apache2 restart
+
+
+
+
+
+When taking a live frame the webpage displays "Frame not read correctly?"
+
+Try taking the frame again. Check to see if motion detection is currently running and if it is stop it. Change the count number in the liveFrame.cpp to a higher count. This will make the camera read in more frames and has a better chance of the frame not being empty. If these steps don't work make sure the camera module is properly connected to the pi and reboot.
+
+
+
+
+
+How to SSH into the Raspberry Pi?
+
+To SSH into the pi make sure that port forwarding is set up for port 22. If you are trying to access the pi from inside your home network SSH into the internal IP address. If you are trying to access the pi from an external network SSH into the external IP address.
+
+Internal: ssh pi@192.168.192.XX
+
+External: ssh pi@37.228.209.XXX
+
+
+
+
+
+Only a partial image was taken while using motion detection?
+
+A partial image appeared when the OpenCV command imwrite is interupted. If the motion process was interupted while saving only a partial piece of the image will be saved.
+
+
+
+
+
+Where are the web pages stored on the pi?
+
+The web pages are located at:
+
+/var/www/RaspberrySpi
+
+
+
+
+
+Where is the CGI script located on the pi?
+
+It is stored in the following path:
+
+/usr/lib/cgi-bin/
+
+
+
+
+
+Source code for the Raspberry Spi?
+
+http://www.github.com/Smellen
+
+
+
+
+
+
+Question not here?
+
+Email eburke624@gmail.com

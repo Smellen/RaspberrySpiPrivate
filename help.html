@@ -23,11 +23,13 @@
 <h1> Help Page</h1>
 
 <h2>The camera doesn't open?</h2>
-<p> The UV4L driver has not been started. This must be started on the pi or added to the pi's boot script.</p>
+<p> The UV4L (Universal Video 4 Linux) driver has not been started. This must be started on the pi or added to the pi's boot script.</p>
+<p>To start the camera use the following command:</p>
+<p><b>sudo uv4l --sched-rr --driver raspicam --auto-video_nr --width 320 --height 240 --encoding mjpeg --nopreview --awb off --framerate 15</b></p>
 
 <h2>How does the motion detection work?</h2>
-<p> All image processing is d ne by using the OpenCV library. Fo motion detection a method called absolute difference is used. </p>
-<p> Absolute difference takes in two images. It subtracts one from the other and returns a new one with the differences in it. Instead of looking for motion in a colour the new image containing the differences is converted to greyscale. This image will now only have black and white pixels. Black pixels mean no difference in that area and white pixels mean there are.</p>
+<p> All image processing is done by using the OpenCV library. For motion detection a method called absolute difference is used. </p>
+<p> Absolute difference takes in two images. It subtracts one from the other and returns a new one with the differences in it. Instead of looking for motion in a colour the new image containing the differences is converted to greyscale. This image will now only have black and white pixels. Black pixels mean no difference in that area and white pixels means there is a difference.</p>
 
 <h2>The webpage is unavailable?</h2>
 <p>If the webpage cannot be found check the external IP and the internal IP address's have not changed.</p> 
@@ -36,14 +38,14 @@
 
 <p><b>curl ifconfig.me </b></p>
 
-<p> If curl is not installed run the follow command:</p>
+<p> If curl is not installed run the following command:</p>
 
 <p><b>sudo apt-get install curl</b></p>
 <p>Curl will only return the pi's external IP.</p>
 
 <p>For checking the internal IP address use the following command:</p>
 <p><b>ifconfig</b></p>
-<p>Look for the section <b>wlan0</b> and the IP should after the<b> inet addr</b>.</p>
+<p>Look for the section <b>wlan0</b> and the IP should be after the<b> inet addr</b>.</p>
 
 <p>If the external and internal IP's are the same as in the webpages check to see if port forwarding is set up on your router. Port 80 is needed to send the HTTP requests to the pi from your browser. To do this log into your router and allow port 80 access to the pi's internal IP address. Port forwarding will be different for each router and should be explained in the router manual or found online.
 </p>
@@ -59,23 +61,24 @@
 <p>Internal: <b>ssh pi@192.168.192.XX</b></p>
 <p>External: <b>ssh pi@37.228.209.XXX</b></p>
 
-<h2>While motion detection was running not a complete picture was saved. Only partial image appear?</h2>
-<p>Only partial images appear when the OpenCV command imwrite is interupted. If the motion process was interupted while saving only a partial piece of the image will be saved.</p>
+<h2>Only a partial image was taken while using motion detection?</h2>
+<p>A partial image appeared when the OpenCV command imwrite is interupted. If the motion process was interupted while saving only a partial piece of the image will be saved.</p>
+
+<h2>Where are the web pages stored on the pi?</h2>
+<p>The web pages are located at:</p>
+<p><b>/var/www/RaspberrySpi</b></p>
+
+<h2>Where is the CGI script located on the pi?</h2>
+<p>It is stored in the following path:<p>
+<p><b>/usr/lib/cgi-bin/</b></p>
 
 <h2>Source code for the Raspberry Spi?</h2>
-<p>www.github.com/Smellen </p>
+<a href ="http://www.github.com/Smellen">http://www.github.com/Smellen</a>
 
 <h2>Question not here?  </h2>
 <p>Email eburke624@gmail.com </p>
 
-
 <h2>  </h2>
 <p>  </p>
-
-
-
 </div>
-
-
-
 <html>

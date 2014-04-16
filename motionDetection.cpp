@@ -62,9 +62,9 @@ Not every frame is used for comparison to avoid killing the raspberry.
 		cap >> frame;
 		frame.copyTo(prevFrame);
 		frameCount++;
-		if(frameCount == 5){
+		if(frameCount == 3){
 			now = time(0);
-			while( nextFrameCount != 4 ){
+			while( nextFrameCount != 3 ){
 				cap >> frame;
 				frame.copyTo(currFrame);
 				nextFrameCount++;
