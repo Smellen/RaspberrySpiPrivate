@@ -16,10 +16,15 @@ Current
 - Connected to CSopen
 - Back button
 - Motion detection eye colour
-
-Features not yet added
-=======================
-- Live video streaming
 - Acknowledgements page
 - Script for updating ip address
 - Presentation Slides
+
+Features not yet added
+=======================
+- All features that were planned to be added are present
+
+Features with Issues
+======================= 
+- Video Live Streaming. Currently not available in the webpages due to connection issues. Streaming also effects apache and current website.
+
