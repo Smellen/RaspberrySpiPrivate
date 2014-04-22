@@ -79,31 +79,36 @@ int main (){
 
 	   Raspberry Spi layout is used. The image just taken will be displayed.	
 	 */
+	 /*
+	 
+	 External IP replaced by http://XX.XXX.XXX.XXX/
+	 
+	 */
 	cout << "Content-type: text/html\r\n\r\n";
 	cout << "<!DOCTYPE html>";
 	cout << "<html>";
 
 	cout << "<head>";
 	cout << "<title>Raspberry Spi</title>";
-	cout << "<link href=\"http://37.228.209.172/css/main.css\" rel=\"stylesheet\" type=\"text/css\">";
+	cout << "<link href=\"http://XX.XXX.XXX.XXX/css/main.css\" rel=\"stylesheet\" type=\"text/css\">";
 
-	cout << "<link rel=\"shortcut icon\" href=\"http://37.228.209.172/raspberrySpi.ico\">";
-	cout << "<link rel=\"apple-touch-icon\" href=\"http://37.228.209.172/raspberrySpi.ico\">";
+	cout << "<link rel=\"shortcut icon\" href=\"http://XX.XXX.XXX.XXX/raspberrySpi.ico\">";
+	cout << "<link rel=\"apple-touch-icon\" href=\"http://XX.XXX.XXX.XXX/raspberrySpi.ico\">";
 
 	cout << "</head>";
 
 	cout << "<body>";
 	cout << "<div id=\"wrap\">";
 	cout << "<div class=\"logo\">";
-	cout << "<img src=\"http://37.228.209.172/img/raspberrySPY.png\"/>";
+	cout << "<img src=\"http://XX.XXX.XXX.XXX/img/raspberrySPY.png\"/>";
 	cout << "</div>";
 
-	cout << "<form action= \"http://37.228.209.172/index.html\">";
+	cout << "<form action= \"http://XX.XXX.XXX.XXX/index.html\">";
 	cout << "<input type =\"submit\" value=\"   &larr;   \" style= \" position: absolute; left: 500px; top: 100px;\">";
 	cout <<	"</form>";
 
 	cout << "<h1> Frame Saved! </h1>\n";
-	cout << "<img src=\"http://37.228.209.172/photos/time.png\" alt=\"Raspberry SPY\" />";
+	cout << "<img src=\"http://XX.XXX.XXX.XXX/photos/time.png\" alt=\"Raspberry SPY\" />";
 	
 	cout <<	"<div id=\"footer\">";
         cout << "<p> <a href=\"/help.html\">Help Page</a> </p>";
